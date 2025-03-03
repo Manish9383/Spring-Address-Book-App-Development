@@ -62,3 +62,4 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:196)
 	... 37 common frames omitted
 2025-03-04 00:20:21.680 [restartedMain] WARN  [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-04 00:25:05.382 [restartedMain] WARN  [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
