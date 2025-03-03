@@ -1,8 +1,10 @@
 package com.bridgelabz.springaddressbookapplication.dto;
 
 
+
 public class AddressBookDTO {
 
+	private int id;
     private String name;
     private String phoneNumber;
     private String city;
@@ -14,6 +16,10 @@ public class AddressBookDTO {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.city = city;
+    }
+    
+    public int getId() {
+        return id;
     }
 
     public String getName() {
