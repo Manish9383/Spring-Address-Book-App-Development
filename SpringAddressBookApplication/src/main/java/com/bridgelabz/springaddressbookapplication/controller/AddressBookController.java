@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
+
+
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/addressbook")
 public class AddressBookController {
@@ -34,18 +40,27 @@ public class AddressBookController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<ResponseDTO> createAddress(@RequestBody AddressBookDTO addressBookDTO) {
+    public ResponseEntity<ResponseDTO> createAddress(@Valid @RequestBody AddressBookDTO addressBookDTO) {
         AddressBook address = addressBookService.createAddress(addressBookDTO);
         ResponseDTO respDTO = new ResponseDTO("Created Address Successfully", address);
         return new ResponseEntity<>(respDTO, HttpStatus.OK);
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<ResponseDTO> updateAddress(@RequestBody AddressBookDTO addressBookDTO) {
-        AddressBook address = addressBookService.updateAddress(addressBookDTO);
-        ResponseDTO respDTO = new ResponseDTO("Updated Address Successfully", address);
-        return new ResponseEntity<>(respDTO, HttpStatus.OK);
+    @PutMapping("/update/{id}")
+    public ResponseEntity<ResponseDTO> updateAddress(
+            @PathVariable int id, 
+            @Valid @RequestBody AddressBookDTO addressBookDTO) {
+
+        AddressBook address = addressBookService.updateAddress(id, addressBookDTO);
+        if (address != null) {
+            ResponseDTO respDTO = new ResponseDTO("Updated Address Successfully", address);
+            return new ResponseEntity<>(respDTO, HttpStatus.OK);
+        } else {
+            ResponseDTO respDTO = new ResponseDTO("Address Not Found", null);
+            return new ResponseEntity<>(respDTO, HttpStatus.NOT_FOUND);
+        }
     }
+
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<ResponseDTO> deleteAddress(@PathVariable("id") int id) {

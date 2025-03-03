@@ -8,6 +8,12 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class AddressBookService implements IAddressBookService {
 
@@ -28,19 +34,19 @@ public class AddressBookService implements IAddressBookService {
 
     @Override
     public AddressBook createAddress(AddressBookDTO addressBookDTO) {
-        AddressBook newAddress = new AddressBook(addressBookList.size() + 1, addressBookDTO.getName(), 
-                                                 addressBookDTO.getPhoneNumber(), addressBookDTO.getCity());
+        AddressBook newAddress = new AddressBook(addressBookList.size() + 1, addressBookDTO);
         addressBookList.add(newAddress);
         return newAddress;
     }
 
     @Override
-    public AddressBook updateAddress(AddressBookDTO addressBookDTO) {
-        AddressBook existingAddress = getAddressById(addressBookDTO.getId());
+    public AddressBook updateAddress(int id, AddressBookDTO addressBookDTO) {
+        AddressBook existingAddress = getAddressById(id);
         if (existingAddress != null) {
-            existingAddress.setName(addressBookDTO.getName());
-            existingAddress.setPhoneNumber(addressBookDTO.getPhoneNumber());
-            existingAddress.setCity(addressBookDTO.getCity());
+            existingAddress.setName(addressBookDTO.name);
+            existingAddress.setPhoneNumber(addressBookDTO.phoneNumber);
+            existingAddress.setEmail(addressBookDTO.email);
+            existingAddress.setCity(addressBookDTO.city);
             return existingAddress;
         }
         return null;

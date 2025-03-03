@@ -2,3 +2,63 @@
 2025-03-04 00:02:15.680 [restartedMain] WARN  [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2025-03-04 00:08:59.122 [restartedMain] WARN  [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2025-03-04 00:11:57.979 [restartedMain] WARN  [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-04 00:19:50.952 [restartedMain] WARN  [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'addressBookController': Unsatisfied dependency expressed through field 'addressBookService': Error creating bean with name 'addressBookService' defined in file [C:\Spring Address Book\SpringAddressBookApplication\target\classes\com\bridgelabz\springaddressbookapplication\service\AddressBookService.class]: Failed to instantiate [com.bridgelabz.springaddressbookapplication.service.AddressBookService]: Constructor threw exception
+2025-03-04 00:19:51.001 [restartedMain] ERROR [o.s.boot.SpringApplication              ] - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'addressBookController': Unsatisfied dependency expressed through field 'addressBookService': Error creating bean with name 'addressBookService' defined in file [C:\Spring Address Book\SpringAddressBookApplication\target\classes\com\bridgelabz\springaddressbookapplication\service\AddressBookService.class]: Failed to instantiate [com.bridgelabz.springaddressbookapplication.service.AddressBookService]: Constructor threw exception
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1445)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1155)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1121)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1056)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.bridgelabz.springaddressbookapplication.SpringAddressBookApplication.main(SpringAddressBookApplication.java:16)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'addressBookService' defined in file [C:\Spring Address Book\SpringAddressBookApplication\target\classes\com\bridgelabz\springaddressbookapplication\service\AddressBookService.class]: Failed to instantiate [com.bridgelabz.springaddressbookapplication.service.AddressBookService]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1343)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1228)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1606)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1552)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 25 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.bridgelabz.springaddressbookapplication.service.AddressBookService]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:222)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:122)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1337)
+	... 35 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on token "package", import expected
+	The declared package "com.bridgelabz.springaddressbook.service" does not match the expected package "com.bridgelabz.springaddressbookapplication.service"
+	The import com.bridgelabz.springaddressbook cannot be resolved
+	The import com.bridgelabz.springaddressbook cannot be resolved
+
+	at com.bridgelabz.springaddressbookapplication.service.AddressBookService.<init>(AddressBookService.java:11)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:196)
+	... 37 common frames omitted
+2025-03-04 00:20:21.680 [restartedMain] WARN  [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
