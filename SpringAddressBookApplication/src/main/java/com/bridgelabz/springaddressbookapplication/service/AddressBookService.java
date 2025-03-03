@@ -2,6 +2,7 @@ package com.bridgelabz.springaddressbookapplication.service;
 
 
 import com.bridgelabz.springaddressbookapplication.dto.AddressBookDTO;
+import com.bridgelabz.springaddressbookapplication.exception.AddressBookException;
 import com.bridgelabz.springaddressbookapplication.model.AddressBook;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +12,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class AddressBookService implements IAddressBookService {
@@ -29,7 +28,7 @@ public class AddressBookService implements IAddressBookService {
         return addressBookList.stream()
                 .filter(address -> address.getId() == id)
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(() -> new AddressBookException("Address Book ID " + id + " not found"));
     }
 
     @Override
@@ -54,6 +53,7 @@ public class AddressBookService implements IAddressBookService {
 
     @Override
     public void deleteAddress(int id) {
-        addressBookList.removeIf(address -> address.getId() == id);
+        AddressBook existingAddress = getAddressById(id);  
+        addressBookList.remove(existingAddress);
     }
 }
